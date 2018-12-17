@@ -7,7 +7,6 @@ public class _01_RobotRace {
 	public static void main(String[] args)
 	{
 		
-
 	//2. create an array of 5 robots.
 	Robot r = new Robot();
 
