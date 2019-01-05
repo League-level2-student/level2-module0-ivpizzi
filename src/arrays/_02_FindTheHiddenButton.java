@@ -16,32 +16,45 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class _02_FindTheHiddenButton implements ActionListener{
-	JFrame window;
+	JFrame frame;
 	JPanel panel;
 	
 	//1. create an array of JButtons. Don't initialize it yet.
+	JButton[] buttons;
 	
 	//2 create an int variable called hiddenButton
+	int hiddenButton;
 	
 	public static void main(String[] args) {
 		new _02_FindTheHiddenButton().start();
 	}
 	
 	public void start() {
-		window = new JFrame("Find the Button");
+		frame = new JFrame("Find the Button");
 		panel = new JPanel();
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//3.  Ask the user to enter a positive number and convert it to an int
+		String input = JOptionPane.showInputDialog("Enter a positive number");
+		int num = Integer.parseInt(input);
 		
 		//4. Initialize the array of JButtons to be the size of the int created in step 3
+		buttons = new JButton[num];
 		
 		//5. Make a for loop to iterate through the JButton array
 			//6. initialize each JButton in the array
 			//7. add the ActionListener to each JButton
 			//8. add each JButton to the panel
+		for(int i = 0; i < buttons.length; i++)
+		{
+			JButton b = new JButton();
+			b.addActionListener(this);
+			panel.add(b);
+			buttons[i] = b;
+		}
 		
 		//9 add the panel to the window
+		frame.add(panel);
 		
 		//10. call setExtendedState(JFrame.MAXIMIZED_BOTH) on your JFrame object.
 		
